@@ -18,7 +18,7 @@ if [ "$OS" = "Darwin" ]; then
 		done
 	}
 elif [ "$OS" = "Linux" ]; then
-	# sudo apt-get update
+	sudo apt-get update
 	install_pkg() {
 		for arg in "$@"; do
 			sudo apt-get install -y $1
@@ -63,3 +63,6 @@ if [ ! -e "${HOME}/.zshrc" ]; then
 	cp $HOME/.oh-my-zsh/templates/zshrc.zsh-template $HOME/.zshrc
 fi
 echo "source ${DOTFILES}/zshrc" >> $HOME/.zshrc
+
+git config --global user.name "Xin Yang"
+git config --global user.email "yangxin0@outlook.com"
