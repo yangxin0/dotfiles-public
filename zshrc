@@ -4,6 +4,8 @@ alias vim=nvim
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 
+export PATH=$PATH:$HOME/.local/bin
+
 function exists { which $1 &> /dev/null }
 
 if exists percol; then

@@ -32,19 +32,15 @@ else
 	exit -1
 fi
 
-if ! have_prog python3; then
-	install_pkg python3
-	if ! have_prog percol; then
-		pip3 install percol
-	fi
-fi
-
-progs=(vim neovim tmux)
+progs=(python3 python3-pip vim neovim tmux)
 for prog in "${progs[@]}"; do
 	if ! have_prog "${prog}"; then
 		install_pkg $prog
 	fi
 done
+if ! have_prog percol; then
+	pip3 install percol
+fi
 
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
     git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
