@@ -1,19 +1,9 @@
-# oh-my-zsh setup
-if [ ! -d "${HOME}/.oh-my-zsh" ]; then
-    git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
-fi
-export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="ys"
-zstyle ':omz:update' mode disabled
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
+DOTFILES=$( cd -- "$( dirname -- "$(realpath "$0")" )" &> /dev/null && pwd )
 
-# General setup
 alias vim=nvim
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 
-# Percol
 function exists { which $1 &> /dev/null }
 
 if exists percol; then
@@ -29,7 +19,6 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
-# Golang
 if [[ `uname` == "Darwin" ]]; then
     export GOROOT=/opt/go
 else
