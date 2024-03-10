@@ -1,4 +1,14 @@
-# Editor setup
+# oh-my-zsh setup
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
+    git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
+fi
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="ys"
+zstyle ':omz:update' mode disabled
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+# General setup
 alias vim=nvim
 export EDITOR=nvim
 export GIT_EDITOR=nvim
