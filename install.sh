@@ -58,6 +58,7 @@ ln -s $DOTFILES/percol.d $HOME/.percol.d
 if [ ! -e "${HOME}/.zshrc" ]; then
 	cp $HOME/.oh-my-zsh/templates/zshrc.zsh-template $HOME/.zshrc
 fi
+echo "export PATH=\$PATH:\$HOME/.local/bin" >> $HOME/.zshrc
 echo "source ${DOTFILES}/zshrc" >> $HOME/.zshrc
 
 git config --global user.name "Xin Yang"
