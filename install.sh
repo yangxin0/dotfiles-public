@@ -32,14 +32,22 @@ else
 	exit -1
 fi
 
-progs=(python3 python3-pip vim neovim tmux)
+progs=(python3 vim tmux)
 for prog in "${progs[@]}"; do
 	if ! have_prog "${prog}"; then
 		install_pkg $prog
 	fi
 done
+
 if ! have_prog percol; then
+	if ! have_prog pip3; then
+		install_pkg python3-pip
+	fi
 	pip3 install percol
+fi
+
+if ! have_prog nvim; then
+	install_pkg neovim
 fi
 
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
