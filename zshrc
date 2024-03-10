@@ -1,5 +1,7 @@
 DOTFILES=$( cd -- "$( dirname -- "$(realpath "$0")" )" &> /dev/null && pwd )
 
+alias ll='ls -l'
+alias la='ls -a'
 alias vim=nvim
 export EDITOR=nvim
 export GIT_EDITOR=nvim
