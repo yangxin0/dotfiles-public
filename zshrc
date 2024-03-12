@@ -1,4 +1,5 @@
 DOTFILES=$( cd -- "$( dirname -- "$(realpath "$0")" )" &> /dev/null && pwd )
+OS=$(uname -s)
 
 alias ll='ls -l'
 alias la='ls -a'
@@ -22,9 +23,10 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
-if [[ `uname` == "Darwin" ]]; then
+if [[ "$OS" == "Darwin" ]]; then
     export GOROOT=/opt/go
 else
+    alias apt-nocert='apt -o "Acquire::https::Verify-Peer=false"'
     export GOROOT=/usr/local/go
 fi
 export GOPROXY="https://goproxy.cn"
