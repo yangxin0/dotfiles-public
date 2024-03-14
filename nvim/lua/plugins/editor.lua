@@ -20,7 +20,7 @@ return {
         },
         keys = {
             {
-                "\\\\",
+                "<leader>f",
                 function() require("telescope.builtin").find_files() end,
                 desc = "Search Files"
             },
@@ -35,7 +35,7 @@ return {
                 desc = "Recent Opened Files"
             },
             {
-                "<leader>f",
+                "<leader>d",
                 function()
                     local telescope = require("telescope")
                     local function telescope_buffer_dir()
