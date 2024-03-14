@@ -47,8 +47,8 @@ return {
                         respect_ignore = false,
                         hidden = true,
                         disable_devicons = true,
-                        grouped = true,
                         previewer = false,
+                        grouped = true,
                         initial_mode = "normal",
                         layout_config = { height = 40 }
                     })
@@ -58,6 +58,14 @@ return {
         },
         config = function(_, opts)
             local telescope = require("telescope")
+            local actions = require("telescope.actions")
+            opts.defaults = {
+                mappings = {
+                    ["i"] = {
+                        ["<esc>"] = actions.close
+                    }
+                }
+            }
             opts.pickers = {
                 find_files = {
                     theme = "dropdown",
@@ -71,7 +79,12 @@ return {
             opts.extensions = {
                 file_browser = {
                     theme = "dropdown",
-                    hijack_netrw = true
+                    hijack_netrw = true,
+                    mappings = {
+                        ["n"] = {
+                            ["<C-c>"] = actions.close
+                        }
+                    }
                 }
             }
             telescope.setup(opts)
