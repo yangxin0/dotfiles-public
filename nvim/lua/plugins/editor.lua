@@ -40,19 +40,30 @@ return {
                 "<leader>f",
                 function()
                     require("telescope.builtin").find_files({
-                        path_display = { "truncate" }
+                        path_display = { "truncate" },
+                        layout_config = { width = 0.6, height = 0.6}
                     })
                 end,
                 desc = "Search Files"
             },
             {
                 "<leader>b",
-                function() require("telescope.builtin").buffers() end,
+                function()
+                    require("telescope.builtin").buffers({
+                        path_display = { "truncate" },
+                        layout_config = { width = 0.6, height = 0.6}
+                    })
+                end,
                 desc = "Search Buffers"
             },
             {
                 "<leader>?",
-                function() require("telescope.builtin").oldfiles() end,
+                function()
+                    require("telescope.builtin").oldfiles({
+                        path_display = { "truncate" },
+                        layout_config = { width = 0.6, height = 0.6}
+                    })
+                end,
                 desc = "Recent Opened Files"
             },
             {
@@ -93,6 +104,10 @@ return {
                     previewer = false
                 },
                 buffers = {
+                    theme = "dropdown",
+                    previewer = false
+                },
+                oldfiles = {
                     theme = "dropdown",
                     previewer = false
                 }
