@@ -70,7 +70,7 @@ return {
                         layout_config = { height = 40 }
                     })
                 end,
-                desc = "Open File Browser with the path of current buffer"
+                desc = "Open File Browser"
             }
         },
         config = function(_, opts)
