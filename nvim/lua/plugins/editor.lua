@@ -1,5 +1,22 @@
 return {
     {
+        "tpope/vim-fugitive",
+        "tpope/vim-rhubarb",
+        {
+            "lewis6991/gitsigns.nvim",
+            opts = {
+                signcolumn = false,
+                signs = {
+                    add = { text = "+" },
+                    change = { text = "~" },
+                    delete = { text = '_' },
+                    topdelete = { text = '‾' },
+                    changedelete = { text = '~' }
+                }
+            }
+        }
+    },
+    {
         "max397574/better-escape.nvim",
         opts = {
             mapping = { "jk" },
