@@ -9,12 +9,12 @@ return {
         "hrsh7th/nvim-cmp",
         config = function(_, opts)
             local cmp = require("cmp")
-	    local luasnip = require("luasnip")
-	    opts.snippet = {
-		expand = function(args)
-		    luasnip.lsp_expand(args.body)
-		end
-	    }
+            local luasnip = require("luasnip")
+            opts.snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end
+            }
             opts.mapping = cmp.mapping.preset.insert({
                 ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
@@ -31,7 +31,7 @@ return {
             opts.sources = {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
-		{ name = "luasnip" }
+                { name = "luasnip" }
             }
             cmp.setup(opts)
         end
@@ -66,6 +66,29 @@ return {
             vim.g.NERDTrimTrailingWhitespace = 1
             vim.g.NERDToggleCheckAllLines = 1
             vim.g.NERDDefaultAlign = 'left'
+        end
+    },
+    {
+        "chaoren/vim-wordmotion",
+        event = "VeryLazy"
+    },
+    {
+        "ggandor/flit.nvim",
+        dependencies = {
+            "ggandor/leap.nvim",
+            "tpope/vim-repeat"
+        },
+        config = function()
+            local opts = {
+                  keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+                  -- A string like "nv", "nvo", "o", etc.
+                  labeled_modes = "v",
+                  multiline = true,
+                  -- Like `leap`s similar argument (call-specific overrides).
+                  -- E.g.: opts = { equivalence_classes = {} }
+                  opts = {}
+            }
+            require("flit").setup(opts)
         end
     }
 }
