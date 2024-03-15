@@ -55,5 +55,17 @@ return {
             vim.g.matchup_delim_start_plaintext = 0
             vim.g.matchup_transmute_enabled = 0
         end
+    },
+    {
+        "preservim/nerdcommenter",
+        init = function()
+            vim.g.NERDCreateDefaultMappings = 1
+            vim.g.NERDSpaceDelims = 1
+            vim.g.NERDCompactSexyComs = 1
+            vim.g.NERDCommentEmptyLines = 1
+            vim.g.NERDTrimTrailingWhitespace = 1
+            vim.g.NERDToggleCheckAllLines = 1
+            vim.g.NERDDefaultAlign = 'left'
+        end
     }
 }
