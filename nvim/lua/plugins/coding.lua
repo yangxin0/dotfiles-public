@@ -9,6 +9,12 @@ return {
         "hrsh7th/nvim-cmp",
         config = function(_, opts)
             local cmp = require("cmp")
+	    local luasnip = require("luasnip")
+	    opts.snippet = {
+		expand = function(args)
+		    luasnip.lsp_expand(args.body)
+		end
+	    }
             opts.mapping = cmp.mapping.preset.insert({
                 ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
@@ -25,7 +31,7 @@ return {
             opts.sources = {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
-                { name = "luasnip" }
+		{ name = "luasnip" }
             }
             cmp.setup(opts)
         end
@@ -37,6 +43,17 @@ return {
             autopairs.setup({
                 disable_filetype = { "TelescopePrompt", "vim" }
             })
+        end
+    },
+    {
+        "andymass/vim-matchup",
+        init = function()
+            vim.g.matchup_matchparen_deferred = 1
+            vim.g.matchup_matchparen_deferred_show_delay = 100
+            vim.g.matchup_matchparen_hi_surround_always = 1
+            vim.g.matchup_override_vimtex = 1
+            vim.g.matchup_delim_start_plaintext = 0
+            vim.g.matchup_transmute_enabled = 0
         end
     }
 }

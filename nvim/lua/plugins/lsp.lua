@@ -7,8 +7,10 @@ return {
             require("neodev").setup()
             local servers = {
                 lua_ls = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false }
+                    Lua = {
+                        workspace = { checkThirdParty = false },
+                        telemetry = { enable = false }
+                    }
                 },
                 clangd = {},
                 pyright = {}
