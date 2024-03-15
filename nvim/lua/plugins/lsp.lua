@@ -1,10 +1,10 @@
 return {
-    "folke/neodev.nvim",
     "williamboman/mason.nvim",
     {
         "williamboman/mason-lspconfig.nvim",
         config = function(_, opts)
             require("mason").setup()
+            require("neodev").setup()
             local servers = {
                 lua_ls = {
                     workspace = { checkThirdParty = false },
@@ -35,5 +35,10 @@ return {
             })
         end
     },
-    "neovim/nvim-lspconfig"
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "folke/neodev.nvim"
+        }
+    }
 }
