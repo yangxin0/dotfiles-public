@@ -38,7 +38,11 @@ return {
         keys = {
             {
                 "<leader>f",
-                function() require("telescope.builtin").find_files() end,
+                function()
+                    require("telescope.builtin").find_files({
+                        path_display = { "truncate" }
+                    })
+                end,
                 desc = "Search Files"
             },
             {
