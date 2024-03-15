@@ -16,5 +16,6 @@ return {
                 section_separators = ""
             }
         }
-    }
+    },
+    { "folke/which-key.nvim", opts = {} }
 }
