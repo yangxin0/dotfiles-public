@@ -5,33 +5,14 @@ alias ll='ls -l'
 alias la='ls -a'
 alias grep="grep --color=auto"
 alias vim=nvim
+alias apt-nocert='apt -o "Acquire::https::Verify-Peer=false"'
+
 export EDITOR=nvim
 export GIT_EDITOR=nvim
-
-function exists { which $1 &> /dev/null }
-
-if exists percol; then
-    function percol_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
-
-    zle -N percol_select_history
-    bindkey '^R' percol_select_history
-fi
-
-if [[ "$OS" == "Darwin" ]]; then
-    export GOROOT=/opt/go
-else
-    alias apt-nocert='apt -o "Acquire::https::Verify-Peer=false"'
-    export GOROOT=/usr/local/go
-fi
 export GOPROXY="https://goproxy.cn"
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=$HOME/go
+
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_OPTS="--height 100% --layout=reverse"
 
 function print-256-colors () {
     for i in {0..255}
