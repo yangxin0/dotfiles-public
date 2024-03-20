@@ -13,7 +13,7 @@ return {
                     }
                 },
                 clangd = {},
-                pyright = {}
+                jedi_language_server = {}
             }
             local mason_lspconfig = require("mason-lspconfig")
             opts.ensure_installed = vim.tbl_keys(servers)
