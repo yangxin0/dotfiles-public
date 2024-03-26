@@ -5,12 +5,13 @@ alias ll='ls -l'
 alias la='ls -a'
 alias grep="grep --color=auto"
 alias vim=nvim
-alias apt-nocert='apt -o "Acquire::https::Verify-Peer=false"'
+alias apt-no-cert='apt -o "Acquire::https::Verify-Peer=false"'
 
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export GOPROXY="https://goproxy.cn"
 
+# Ctrl-R
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse"
 
@@ -56,3 +57,15 @@ function source-no-proxy()
     unset GIT_SSH_COMMAND
 }
 
+function source-nvm()
+{
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+
+function source-rvm()
+{
+    # Make sure this is the last PATH variable change
+    export PATH="$PATH:$HOME/.rvm/bin"
+}
