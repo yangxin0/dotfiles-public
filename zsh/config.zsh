@@ -44,7 +44,7 @@ function source-proxy()
     if [ -z "$PS0" ]; then
         export PS0=$PS1
     fi
-    export PS1="(%{$fg[red]%}${2}%{$reset_color%}) ${PS0}"
+    export PS1="(%{$fg[red]%}proxy%{$reset_color%}) ${PS0}"
     export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
     export GIT_SSH_COMMAND="ssh -o ProxyCommand='nc -X 5 -x 127.0.0.1:7890 %h %p'"
 }
