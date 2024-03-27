@@ -42,7 +42,7 @@ function source-conda()
     unset __conda_setup
 }
 
-# bypass firewall
+# bypass firewall mainly for linux
 function source-proxy()
 {
     if [ -z "$PS0" ]; then
