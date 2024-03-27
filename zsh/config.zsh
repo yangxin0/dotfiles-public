@@ -11,10 +11,11 @@ export EDITOR=nvim
 export GIT_EDITOR=nvim
 export GOPROXY="https://goproxy.cn"
 
-# Ctrl-R
+# history search with ctrl-r
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse"
 
+# 256 colors for color theme
 function print-256-colors()
 {
     for i in {0..255}
@@ -23,6 +24,7 @@ function print-256-colors()
     done
 }
 
+# python manager
 function source-conda()
 {
     FORGE=$HOME/miniforge3
@@ -40,6 +42,7 @@ function source-conda()
     unset __conda_setup
 }
 
+# bypass firewall
 function source-proxy()
 {
     if [ -z "$PS0" ]; then
@@ -57,6 +60,7 @@ function source-no-proxy()
     unset GIT_SSH_COMMAND
 }
 
+# nodejs manager
 function source-nvm()
 {
     export NVM_DIR="$HOME/.nvm"
@@ -64,6 +68,7 @@ function source-nvm()
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 }
 
+# ruby manager
 function source-rvm()
 {
     # Make sure this is the last PATH variable change
