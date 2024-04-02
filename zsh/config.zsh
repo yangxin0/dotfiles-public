@@ -55,8 +55,10 @@ function source-proxy()
 
 function source-no-proxy()
 {
-    export PS1=$__PS1
-    unset __PS1
+    if [ ! -z "$__PS1" ]; then
+        export PS1=$__PS1
+        unset __PS1
+    fi
     unset https_proxy http_proxy all_proxy
     unset GIT_SSH_COMMAND
 }
