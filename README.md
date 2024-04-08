@@ -1,9 +1,5 @@
 # yangx1n0's Dotfiles
 
-<img src="./images/screenshot.png" alt="image-20240408191012801" style="zoom:50%;" />
-
-<img src="./images/screenshot2.png" alt="screenshot2" style="zoom:50%;" />
-
 ### Contents
 
 - neovim config
@@ -36,3 +32,8 @@ ln -s $DOTFILES/wezterm $HOME/.config/wezterm
 echo 'source /path/to/dotfiles-public/zsh/config.zsh' >> $HOME/.zshrc
 ```
 
+### Screenshot
+
+<img src="./images/screenshot.png" alt="image-20240408191012801" style="zoom:50%;" />
+
+<img src="./images/screenshot2.png" alt="screenshot2" style="zoom:50%;" />
