@@ -4,7 +4,7 @@
 
 - neovim config
 - vim config
-- zsh config
+- zsh config (requires fzf and oh-my-zsh)
 - tmux config
 - wezterm config
 
