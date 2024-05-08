@@ -2,19 +2,19 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
+    -- "hrsh7th/cmp-cmdline",
+    -- "L3MON4D3/LuaSnip",
+    -- "saadparwaiz1/cmp_luasnip",
     {
         "hrsh7th/nvim-cmp",
         config = function(_, opts)
             local cmp = require("cmp")
-            local luasnip = require("luasnip")
-            opts.snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end
-            }
+            -- local luasnip = require("luasnip")
+            -- opts.snippet = {
+            --     expand = function(args)
+            --         luasnip.lsp_expand(args.body)
+            --     end
+            -- }
             opts.mapping = cmp.mapping.preset.insert({
                 ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
@@ -34,21 +34,21 @@ return {
             opts.sources = {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
-                { name = "luasnip" },
+                -- { name = "luasnip" },
                 { name = "path" }
             }
             cmp.setup(opts)
-            cmp.setup.cmdline({":", "/", "?"}, {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({ { name = 'path' } }, {
-                    {
-                        name = 'cmdline',
-                        option = {
-                            ignore_cmds = { 'Man', '!' }
-                        }
-                    }
-                })
-            })
+            -- cmp.setup.cmdline({":", "/", "?"}, {
+            --     mapping = cmp.mapping.preset.cmdline(),
+            --     sources = cmp.config.sources({ { name = 'path' } }, {
+            --         {
+            --             name = 'cmdline',
+            --             option = {
+            --                 ignore_cmds = { 'Man', '!' }
+            --             }
+            --         }
+            --     })
+            -- })
         end
     },
     {
