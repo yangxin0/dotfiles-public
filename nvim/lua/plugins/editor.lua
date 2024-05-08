@@ -66,27 +66,27 @@ return {
                 end,
                 desc = "Recent Opened Files"
             },
-            {
-                "<leader>d",
-                function()
-                    local telescope = require("telescope")
-                    local function telescope_buffer_dir()
-                        return vim.fn.expand("%:p:h")
-                    end
-                    telescope.extensions.file_browser.file_browser({
-                        path = "%:p:h",
-                        cwd = telescope_buffer_dir(),
-                        respect_ignore = false,
-                        hidden = true,
-                        disable_devicons = true,
-                        previewer = false,
-                        grouped = true,
-                        initial_mode = "normal",
-                        layout_config = { height = 40 }
-                    })
-                end,
-                desc = "Open File Browser"
-            }
+            -- {
+            --     "<leader>d",
+            --     function()
+            --         local telescope = require("telescope")
+            --         local function telescope_buffer_dir()
+            --             return vim.fn.expand("%:p:h")
+            --         end
+            --         telescope.extensions.file_browser.file_browser({
+            --             path = "%:p:h",
+            --             cwd = telescope_buffer_dir(),
+            --             respect_ignore = false,
+            --             hidden = true,
+            --             disable_devicons = true,
+            --             previewer = false,
+            --             grouped = true,
+            --             initial_mode = "normal",
+            --             layout_config = { height = 40 }
+            --         })
+            --     end,
+            --     desc = "Open File Browser"
+            -- }
         },
         config = function(_, opts)
             local telescope = require("telescope")
