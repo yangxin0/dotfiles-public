@@ -37,6 +37,9 @@ return {
                 { name = "luasnip" },
                 { name = "path" }
             }
+            opts.view = {
+                docs = { auto_open = false }
+            }
             cmp.setup(opts)
             -- cmp.setup.cmdline({":", "/", "?"}, {
             --     mapping = cmp.mapping.preset.cmdline(),
