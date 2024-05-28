@@ -41,8 +41,12 @@ return {
                 docs = { auto_open = false }
             }
 
-            -- Disable completion in comments
             opts.enabled = function()
+                -- Disable completion in telescope prompt
+                local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+                if buftype == "prompt" then return false end
+
+                -- Disable completion in comments
                 local ctx = require("cmp.config.context")
                 return (not ctx.in_treesitter_capture("comment")
                     and (not ctx.in_syntax_group("Comment")))
