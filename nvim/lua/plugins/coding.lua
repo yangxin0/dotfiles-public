@@ -51,6 +51,26 @@ return {
                 return (not ctx.in_treesitter_capture("comment")
                     and (not ctx.in_syntax_group("Comment")))
             end
+
+            opts.formatting = {
+                format = function (_, item)
+                    local max = 25
+                    local abbr = item.abbr
+                    local kind = item.kind
+                    if #abbr > max then
+                        if kind == "Function" then
+                            abbr = abbr:match("[a-zA-Z0-9\\-_]+")
+                            abbr = abbr .. "( ... )"
+                            item.abbr = abbr
+                        elseif  kind == "EnumMember" or kind == "Text" then
+                            abbr = vim.fn.strcharpart(abbr, #abbr-max, max)
+                            abbr = "(abbr)" .. abbr
+                            item.abbr = abbr
+                        end
+                    end
+                    return item
+                end
+            }
             cmp.setup(opts)
 
             -- Add parentheses after selecting function or method
