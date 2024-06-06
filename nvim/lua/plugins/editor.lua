@@ -127,5 +127,13 @@ return {
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("file_browser")
         end
+    },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim"
+        }
     }
 }
