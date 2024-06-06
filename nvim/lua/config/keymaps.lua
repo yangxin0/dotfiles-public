@@ -10,7 +10,7 @@ map("i", "<C-c>", "<Esc>")
 map("n", "<C-l>", "zz")
 map("n", "K", vim.lsp.buf.hover, { desc = "Show hover" })
 map("n", "<leader>d", vim.cmd.Ex, { desc = "File explorer" })
-map("n", "<leader>\\", function ()
+map("n", "\\", function ()
     local active = (vim.fn.bufwinnr("neo-tree") ~= -1)
     if active then
         vim.cmd("Neotree close")
