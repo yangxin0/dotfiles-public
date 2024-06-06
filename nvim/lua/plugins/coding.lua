@@ -58,9 +58,13 @@ return {
                     local abbr = item.abbr
                     local kind = item.kind
                     if #abbr > max then
-                        if kind == "Function" then
+                        if kind == "Function" or kind == "Class" then
                             abbr = abbr:match("[a-zA-Z0-9\\-_]+")
-                            abbr = abbr .. "( ... )"
+                            if kind == "Function" then
+                                abbr = abbr .. "( ... )"
+                            else
+                                abbr = abbr .. "< ... >"
+                            end
                             item.abbr = abbr
                         elseif  kind == "EnumMember" or kind == "Text" then
                             abbr = vim.fn.strcharpart(abbr, #abbr-max, max)
