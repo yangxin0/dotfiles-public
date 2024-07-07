@@ -96,7 +96,8 @@ return {
                     ["i"] = {
                         ["<esc>"] = actions.close
                     }
-                }
+                },
+                file_ignore_patterns = { "third_party" }
             }
             opts.pickers = {
                 find_files = {
