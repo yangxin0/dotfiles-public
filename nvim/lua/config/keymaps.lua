@@ -18,3 +18,6 @@ map("n", "\\", function ()
         vim.cmd("Neotree reveal")
     end
 end, { noremap = true, silent = true, desc = "File tree"})
+map("n", "<leader>gb", ":e ++enc=gb2312<CR>", {
+    noremap = true, silent = true
+})
