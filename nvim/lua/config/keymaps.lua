@@ -28,3 +28,5 @@ map("n", "<leader>gb", ":e ++enc=gb2312<CR>:set fileencoding=utf-8<CR>:w<CR>", {
 })
 
 map("n", "<leader>\\", "glip\\", { desc = "Align backslash" })
+map("n", "<leader>rci", "cs\"<", { desc = "Replace double quote with angle brackets" })
+map("n", "<leader>rcI", "cs<\"", { desc = "Replace angle brackets with double quote" })

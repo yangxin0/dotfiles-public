@@ -148,5 +148,15 @@ return {
         config = function()
             vim.g.lion_squeeze_spaces = 1
         end
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+            })
+        end
     }
+
 }
