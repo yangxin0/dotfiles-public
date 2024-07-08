@@ -24,5 +24,7 @@ map("n", "\\\\", function()
 end, { noremap = true, silent = true, desc = "File Manager"})
 
 map("n", "<leader>gb", ":e ++enc=gb2312<CR>:set fileencoding=utf-8<CR>:w<CR>", {
-    noremap = true, silent = true
+    noremap = true, silent = true, desc = "GB2312 to UTF8"
 })
+
+map("n", "<leader>\\", "glip\\", { desc = "Align backslash" })
