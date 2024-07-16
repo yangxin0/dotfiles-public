@@ -19,7 +19,7 @@ return {
                 lualine_c = {
                     {
                         "filename",
-                        path = 1 -- Absolute path
+                        path = 1 -- relative path
                     }
                 }
             }
