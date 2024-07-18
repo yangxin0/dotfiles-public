@@ -31,9 +31,3 @@ ln -s $DOTFILES/tmux $HOME/.config/tmux
 ln -s $DOTFILES/wezterm $HOME/.config/wezterm
 echo 'source /path/to/dotfiles-public/zsh/config.zsh' >> $HOME/.zshrc
 ```
-
-### Screenshot
-
-<img src="./images/screenshot.png" alt="image-20240408191012801" style="zoom:40%;" />
-
-<img src="./images/screenshot2.png" alt="screenshot2" style="zoom:40%;" />
