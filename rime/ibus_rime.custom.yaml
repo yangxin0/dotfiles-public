@@ -1,0 +1,13 @@
+patch:
+  style:
+    horizontal: true
+    color_scheme: luna
+    horizontal: true
+    inline_preedit: false
+    corner_radius: 10
+    border_height: 0
+    border_width: 0
+    line_spacing: 1
+    spacing: 5
+    font_face: "Hiragino Sans GB W3"
+    font_point: 21

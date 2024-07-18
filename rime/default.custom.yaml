@@ -1,0 +1,19 @@
+patch:
+  schema_list:
+    - schema: double_pinyin_flypy  # 小鶴雙拼
+  key_binder:
+    bindings:
+      - { when: always, accept: Control+space, toggle: ascii_mode }
+      - {accept: minus, send: Page_Up, when: has_menu}
+      - {accept: equal, send: Page_Down, when: has_menu}
+
+  menu:
+    page_size: 8
+  ascii_composer:
+    good_old_caps_lock: true
+    switch_key:
+      Caps_Lock: noop
+      Control_L: noop
+      Control_R: noop
+      Shift_L: noop
+      Shift_R: noop
