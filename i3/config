@@ -207,3 +207,4 @@ bar {
 
 for_window [class="TelegramDesktop"] floating enable, resize set 1600 1300
 for_window [class="wechat"] floating enable, resize set 1500 1400
+for_window [class="GoldenDict"] floating enable, resize set 1800 1400
