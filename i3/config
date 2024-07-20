@@ -41,6 +41,7 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id ibus-daemon -dr
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/bg.jpg
+exec_always --no-startup-id Snipaste
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -203,6 +204,7 @@ bar {
     separator_symbol " | "
     status_command i3status --config ~/.config/i3/i3status.conf
     # font pango:DejaVu Sans Mono 10
+    tray_padding 3
 }
 
 for_window [class="TelegramDesktop"] floating enable, resize set 1600 1300
