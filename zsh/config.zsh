@@ -27,7 +27,7 @@ function print-256-colors()
 # python manager
 function source-conda()
 {
-    FORGE=$HOME/miniforge3
+    FORGE=$HOME/miniconda3
     CONDA="${FORGE}/bin/conda"
     __conda_setup="$($CONDA 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
