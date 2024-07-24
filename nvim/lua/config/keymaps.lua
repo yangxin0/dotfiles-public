@@ -19,10 +19,6 @@ map("n", "\\\\", function ()
     end
 end, { noremap = true, silent = true, desc = "File tree"})
 
-map("n", "\\\\", function()
-    vim.cmd("Neotree reveal")
-end, { noremap = true, silent = true, desc = "File Manager"})
-
 map("n", "<leader>gb", ":e ++enc=gb2312<CR>:set fileencoding=utf-8<CR>:w<CR>", {
     noremap = true, silent = true, desc = "GB2312 to UTF8"
 })

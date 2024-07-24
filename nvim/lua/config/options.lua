@@ -19,3 +19,5 @@ vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
+
+vim.opt.clipboard = "unnamedplus"
