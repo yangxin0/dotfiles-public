@@ -49,8 +49,13 @@ function source-proxy()
         export __PS1=$PS1
     fi
     export PS1="(%{$fg[red]%}proxy%{$reset_color%}) ${__PS1}"
-    export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
-    export GIT_SSH_COMMAND="ssh -o ProxyCommand='nc -X 5 -x 127.0.0.1:7890 %h %p'"
+    if [[ "$OS" == "Darwin" ]]; then
+        export https_proxy=http://127.0.0.1:6152 http_proxy=http://127.0.0.1:6152 all_proxy=socks5://127.0.0.1:6153
+        export GIT_SSH_COMMAND="ssh -o ProxyCommand='nc -X 5 -x 127.0.0.1:6153 %h %p'"
+    else
+        export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+        export GIT_SSH_COMMAND="ssh -o ProxyCommand='nc -X 5 -x 127.0.0.1:7890 %h %p'"
+    fi
 }
 
 function source-no-proxy()
