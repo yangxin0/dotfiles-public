@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local local_map = vim.api.nvim_buf_set_keymap
 
 map({"n", "v"}, ",,", "<Plug>NERDCommenterToggle")
 map({"n", "v"}, ",y", "<Plug>NERDCommenterYank")
@@ -23,9 +24,6 @@ map("n", "<leader>gb", ":e ++enc=gb2312<CR>:set fileencoding=utf-8<CR>:w<CR>", {
     noremap = true, silent = true, desc = "GB2312 to UTF8"
 })
 
-map("n", "<leader>\\", "glip\\", { desc = "Align backslash" })
-map("n", "<leader>rci", "cs\"<", { desc = "Replace double quote with angle brackets" })
-map("n", "<leader>rcI", "cs<\"", { desc = "Replace angle brackets with double quote" })
 
 map("n", "<C-p>", function()
     require("telescope.builtin").find_files({
@@ -33,3 +31,12 @@ map("n", "<C-p>", function()
         layout_config = { width = 0.6, height = 0.6 }
     })
 end, { desc = "Find Files"})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function()
+        local_map(0, "n", "<leader>i", ':normal cs"><CR>', { desc = "#include<header.h>" })
+        local_map(0, "n", "<leader>I", ':normal cs>"<CR>', { desc = "#include\"header.h\"" })
+        local_map(0, "n", "<leader>\\", ":normal glip\\", { desc = "Align backslash" })
+    end
+})
