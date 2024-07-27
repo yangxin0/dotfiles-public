@@ -27,4 +27,9 @@ map("n", "<leader>\\", "glip\\", { desc = "Align backslash" })
 map("n", "<leader>rci", "cs\"<", { desc = "Replace double quote with angle brackets" })
 map("n", "<leader>rcI", "cs<\"", { desc = "Replace angle brackets with double quote" })
 
-map("n", "<C-p>", require("telescope.builtin").find_files)
+map("n", "<C-p>", function()
+    require("telescope.builtin").find_files({
+        path_display = { "truncate" },
+        layout_config = { width = 0.6, height = 0.6 }
+    })
+end, { desc = "Find Files"})
