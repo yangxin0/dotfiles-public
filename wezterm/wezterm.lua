@@ -25,6 +25,7 @@ end
 
 config.audible_bell = "Disabled"
 config.window_close_confirmation = "NeverPrompt"
+config.window_decorations = "NONE"
 
 config.mouse_bindings = {
     {
