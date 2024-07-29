@@ -21,11 +21,11 @@ else
     -- consolas font is designed by Microsoft
     config.font = wezterm.font("consolas")
     config.font_size = 13.0
+    config.window_decorations = "NONE"
 end
 
 config.audible_bell = "Disabled"
 config.window_close_confirmation = "NeverPrompt"
-config.window_decorations = "NONE"
 
 config.mouse_bindings = {
     {
