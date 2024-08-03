@@ -27,28 +27,13 @@ function print-256-colors()
 # python manager
 function source-conda()
 {
-    FORGE=$HOME/miniconda3
-    CONDA="${FORGE}/bin/conda"
-    __conda_setup="$($CONDA 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "${FORGE}/etc/profile.d/conda.sh" ]; then
-            . "${FORGE}/etc/profile.d/conda.sh"
-        else
-            export PATH="${FORGE}/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
+    eval "$($HOME/miniforge3/bin/conda shell.zsh hook)"
 }
 
-# bypass firewall mainly for linux
+# bypass firewall
 function source-proxy()
 {
-    if [ -z "$__PS1" ]; then
-        export __PS1=$PS1
-    fi
-    export PS1="(%{$fg[red]%}proxy%{$reset_color%}) ${__PS1}"
+    export PS1="(%{$fg[red]%}proxy%{$reset_color%}) ${PS1}"
     if [[ "$OS" == "Darwin" ]]; then
         export https_proxy=http://127.0.0.1:6152 http_proxy=http://127.0.0.1:6152 all_proxy=socks5://127.0.0.1:6153
         export GIT_SSH_COMMAND="ssh -o ProxyCommand='nc -X 5 -x 127.0.0.1:6153 %h %p'"
@@ -56,16 +41,6 @@ function source-proxy()
         export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
         export GIT_SSH_COMMAND="ssh -o ProxyCommand='nc -X 5 -x 127.0.0.1:7890 %h %p'"
     fi
-}
-
-function source-no-proxy()
-{
-    if [ ! -z "$__PS1" ]; then
-        export PS1=$__PS1
-        unset __PS1
-    fi
-    unset https_proxy http_proxy all_proxy
-    unset GIT_SSH_COMMAND
 }
 
 # nodejs manager
@@ -79,6 +54,5 @@ function source-nvm()
 # ruby manager
 function source-rvm()
 {
-    # Make sure this is the last PATH variable change
     export PATH="$PATH:$HOME/.rvm/bin"
 }
