@@ -160,6 +160,15 @@ return {
             require("nvim-surround").setup({
             })
         end
+    },
+    {
+        "ojroques/nvim-bufdel",
+        config = function()
+            require("bufdel").setup({
+                next = "tab",
+                quit = true
+            })
+        end
     }
 
 }
