@@ -40,3 +40,5 @@ vim.api.nvim_create_autocmd("FileType", {
         local_map(0, "n", "<leader>\\", ":normal glip\\", { desc = "Align backslash" })
     end
 })
+
+map('n', ':bd<CR>', ':BufDel<CR>', { noremap = true, silent = true })
