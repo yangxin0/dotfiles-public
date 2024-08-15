@@ -29,7 +29,7 @@ return {
                 end, { "i", "s" })
             })
             opts.completion = {
-                keyword_length = 3
+                keyword_length = 2
             }
             opts.sources = {
                 { name = "nvim_lsp" },

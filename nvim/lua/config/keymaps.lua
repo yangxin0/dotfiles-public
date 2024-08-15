@@ -40,3 +40,10 @@ vim.api.nvim_create_autocmd("FileType", {
         local_map(0, "n", "<leader>\\", ":normal glip\\", { desc = "Align backslash" })
     end
 })
+
+local tell_bob = function()
+    local bob = vim.fn.stdpath("config") .. "/script/bob.scpt "
+    local current_line = vim.fn.shellescape(vim.fn.getline("."))
+    vim.fn.execute("!osascript " .. bob .. current_line)
+end
+map("n", "<leader>t", tell_bob, { noremap = true, silent = true, desc = "Tell Bob"})
