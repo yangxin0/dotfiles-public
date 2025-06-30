@@ -20,7 +20,6 @@ return {
             }
             local mason_lspconfig = require("mason-lspconfig")
             opts.ensure_installed = vim.tbl_keys(servers)
-            mason_lspconfig.setup(opts)
             local function on_attach(_, bufnr)
                 local nmap = function(keys, func, desc)
                     if desc then
@@ -30,13 +29,16 @@ return {
                 end
                 nmap("gd", vim.lsp.buf.definition, "Goto Definition")
             end
-            mason_lspconfig.setup_handlers({
-                function(server_name)
-                    require("lspconfig")[server_name].setup({
-                        on_attach = on_attach,
-                        settings = servers[server_name]
-                    })
-                end
+            mason_lspconfig.setup({
+                opts = opts,
+                handlers = {
+                    function(server_name)
+                        require("lspconfig")[server_name].setup({
+                            on_attach = on_attach,
+                            settings = servers[server_name]
+                        })
+                    end
+                }
             })
         end
     },
